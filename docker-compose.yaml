@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  base:
+    build:
+      context: ./docker/base
+    image: expense-base
+
+  app:
+    build:
+      context: ./docker/dev
+    image: expense-dev
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/expense
